@@ -56,9 +56,9 @@ printLidShell         = true;
 printSwitchExtenders  = false;
 
 //-- pcb dimensions -- very important!!!
-pcbLength           = 70;
-pcbWidth            = 50;
-pcbThickness        = 1.6;
+pcbLength           = 75;
+pcbWidth            = 60;
+pcbThickness        = 1.3;
                             
 //-- padding between pcb and inside wall
 paddingFront        = 1;
@@ -121,10 +121,10 @@ inspectButtons      = 0;        //-> { -1 | 0 | 1 }
 // (6) = { yappHole, YappPin }
 // (7) = { yappAllCorners | yappFrontLeft | yappFrondRight | yappBackLeft | yappBackRight }
 pcbStands =    [
-                  [2.8, 2.8, 4, 4, 9, yappBoth, yappFrontLeft]
-                , [2.8, 2.8, 4, 4, 9, yappBoth, yappBackRight]
-                , [2.8, 2.8, 4, 4, 9, yappBaseOnly, yappFrontRight]
-                , [2.8, 2.8, 4, 4, 9, yappBaseOnly, yappBackLeft]
+                  [2.8, 2.8+5, 4, 4, 9, yappBoth, yappFrontLeft]
+                , [2.8+5, 2.8+5, 4, 4, 9, yappBoth, yappBackRight]
+                , [2.8, 2.8+5, 4, 4, 9, yappBaseOnly, yappFrontRight]
+                , [2.8+5, 2.8+5, 4, 4, 9, yappBaseOnly, yappBackLeft]
                ];
 
 //-- base plane    -- origin is pcb[0,0,0]
@@ -150,8 +150,8 @@ cutoutsBase =   [
 // (5) = { yappRectangle | yappCircle }
 // (6) = { yappCenter }
 cutoutsLid  =   [
-                  [2, 3, 19, 50, 0, yappRectangle]
-                , [17, 5 + 23, 19, 50, 0, yappRectangle]
+                  [4, 5, 19.5, 50.5, 0, yappRectangle]
+                , [20, 5 + 23 + 5, 19.5, 50.5, 0, yappRectangle]
              //   , [pcbWidth-6, 40, 12, 4, 20, yappCircle]
              //   , [30, 25, 10, 14, 45, yappRectangle, yappCenter]
                 ];
@@ -183,7 +183,7 @@ cutoutsGrill =[
 // (5) = { yappRectangle | yappCircle }
 // (6) = { yappCenter }
 cutoutsFront =  [
-                    [25-11/2-1.27, 12, 11, 8, 0, yappRectangle] // USB
+                    [25-11/2-1.27, 11.5, 11, 6, 0, yappRectangle] // USB
                 ];
 
 //-- back plane  -- origin is pcb[0,0,0]
@@ -223,7 +223,7 @@ cutoutsLeft =   [
 // (5) = { yappRectangle | yappCircle }
 // (6) = { yappCenter }
 cutoutsRight =  [
-              //      [0, 0, 15, 7, 0, yappRectangle]
+                    [10, 15, 13, 5, 0, yappRectangle]
               //    , [30, 10, 25, 15, 0, yappRectangle, yappCenter]
               //    , [pcbLength-10, 2, 10, 0, 0, yappCircle]
                 ];
@@ -320,8 +320,8 @@ pushButtons = [
 // (6) = size
 // (7) = "label text"
 labelsPlane = [
-                 [60, 8, 45, 0.5, "lid", "Liberation Mono:style=bold", 6, "NOW"]
-               , [8, 35, 45, 0.5, "lid", "Liberation Mono:style=bold", 6, "MAX"]
+                 [60, 15, 0, 0.5, "lid", "Liberation Mono:style=bold", 6, "NOW"]
+               , [5, 43, 0, 0.5, "lid", "Liberation Mono:style=bold", 6, "MAX"]
               ];
 
 

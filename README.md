@@ -8,3 +8,12 @@ A simple dust sensor to monitor the clean room, utilizing 7-seg displays and a w
 
 ## Wifi Interface
 * This project displays the current and max dust values on the device itself, and also relays them over a network to view logs/a graph over time.
+
+## Hardware BOM
+* [https://www.adafruit.com/product/3686](PM2.5 Air Quality Sensor and Breadboard Adapter Kit - PMS5003)
+* esp32doit-devkit-v1 Microcontroller Dev Kit
+* 
+
+## Credits
+* [mrWheel's YAPP Box](https://github.com/mrWheel/YAPP_Box) for the enclosure
+* Arduino libraries

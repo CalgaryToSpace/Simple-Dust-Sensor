@@ -48,8 +48,8 @@ void setup() {
 	Serial.println("I2C init done");
 
 	// test the I2C 7segs
-	matrix_now.begin(0x71);
-	matrix_max.begin(0x72); // jumpered, probably
+	matrix_now.begin(0x71); // A0 jumpered
+	matrix_max.begin(0x72); // A1 jumpered
 	matrix_now.setBrightness(15);
 	matrix_max.setBrightness(15);
 	matrix_now.print(1111, DEC); matrix_now.writeDisplay();

@@ -3,7 +3,7 @@ A simple dust sensor to monitor the clean room, utilizing 7-seg displays and a w
 
 ## Software Development
 * This project utilizes PlatformIO, an extension for VS Code. Install PlatformIO and open the VS Code workspace file in this repo to get started.
-* Duplicate the `includes/wifi_credentials.sample.h` to `includes/wifi_credentials.h`, and fill the credentials to maintain wifi connectivity.
+* Duplicate the `include/wifi_credentials.sample.h` to `include/wifi_credentials.h`, and fill the credentials to maintain wifi connectivity.
 * The microcontroller is an ESP32 devkit, and can be programmed over USB from PlatformIO.
 
 ## Wifi Interface

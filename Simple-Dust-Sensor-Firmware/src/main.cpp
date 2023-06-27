@@ -2,6 +2,8 @@
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_PM25AQI.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_LEDBackpack.h>
 
 #include <WiFi.h>
 #include <WiFiMulti.h>
@@ -15,13 +17,17 @@
 #include <CayenneMQTTESP32.h>
 
 // can define any I2C pins
-#define PIN_I2C_SDA 18
-#define PIN_I2C_SCL 19
+#define PIN_I2C_SDA 18 // (white wire)
+#define PIN_I2C_SCL 19 // (green wire)
 #define PIN_PM25_RX 16 // PM25 sensor TX connected to GPIO16 (MCU RX Serial2)
 
 Adafruit_PM25AQI aqi = Adafruit_PM25AQI();
 
 void log_pm25_data_to_serial(PM25_AQI_Data data);
+
+Adafruit_7segment matrix_now = Adafruit_7segment();
+Adafruit_7segment matrix_max = Adafruit_7segment();
+uint16_t max_particle_value = 0;
 
 WiFiMulti wifiMulti;
 
@@ -42,7 +48,13 @@ void setup() {
 	Serial.println("I2C init done");
 
 	// test the I2C 7segs
-	// FIXME
+	matrix_now.begin(0x71);
+	matrix_max.begin(0x72); // jumpered, probably
+	matrix_now.setBrightness(15);
+	matrix_max.setBrightness(15);
+	matrix_now.print(1111, DEC); matrix_now.writeDisplay();
+	matrix_max.print(2222, DEC); matrix_max.writeDisplay();
+	Serial.println("7seg test done");
 
 	// init particulate sensor
 	Serial.println("Init PM 2.5 sensor");
@@ -77,7 +89,14 @@ void loop() {
 	// log data
 	log_pm25_data_to_serial(data);
 
-	// TODO update on screen
+	// update max value // TODO make it a 7-day moving max
+	if (data.particles_03um > max_particle_value) {
+		max_particle_value = data.particles_03um;
+	}
+	
+	// update the screen
+	matrix_now.print(data.particles_03um, DEC); matrix_now.writeDisplay();
+	matrix_max.print(max_particle_value, DEC); matrix_max.writeDisplay();
 
 	// try wifi
 	if (wifiMulti.run() != WL_CONNECTED) {

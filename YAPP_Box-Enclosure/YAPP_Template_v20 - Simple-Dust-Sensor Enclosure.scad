@@ -69,7 +69,7 @@ paddingLeft         = 1;
 //-- Edit these parameters for your own box dimensions
 wallThickness       = 2.0;
 basePlaneThickness  = 1.0;
-lidPlaneThickness   = 1.0;
+lidPlaneThickness   = 3.0;
 
 //-- Total height of box = basePlaneThickness + lidPlaneThickness 
 //--                     + baseWallHeight + lidWallHeight
@@ -183,7 +183,7 @@ cutoutsGrill =[
 // (5) = { yappRectangle | yappCircle }
 // (6) = { yappCenter }
 cutoutsFront =  [
-                    [25-11/2-1.27, 11.5, 11, 6, 0, yappRectangle] // USB
+                    [25-11/2-1.27+5, 11.5, 11, 6, 0, yappRectangle] // USB
                 ];
 
 //-- back plane  -- origin is pcb[0,0,0]
@@ -223,7 +223,7 @@ cutoutsLeft =   [
 // (5) = { yappRectangle | yappCircle }
 // (6) = { yappCenter }
 cutoutsRight =  [
-                    [10, 15, 13, 5, 0, yappRectangle]
+                    [10, 15, 12, 4, 0, yappRectangle]
               //    , [30, 10, 25, 15, 0, yappRectangle, yappCenter]
               //    , [pcbLength-10, 2, 10, 0, 0, yappCircle]
                 ];
